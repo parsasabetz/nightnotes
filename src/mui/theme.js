@@ -10,18 +10,29 @@ const theme = createTheme({
     },
     palette: {
         primary: {
-            main: '#0B2027',
+            main: '#0B2027', // a dark blue color
         },
         secondary: {
-            main: '#747C92',
+            main: '#747C95', // a light blue/grey color
         },
         text: {
-            primary: '#CFD7C7',
+            primary: '#a9a9a9', // white text color
+            secondary: '#d7d7d7', // light grey text color
         },
         background: {
-            default: "#CFD7C7",
+            default: '#21270a', // a dark blue background color
+            paper: '#0B027', // a slightly lighter blue background color
         },
     },
+    breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 960,
+          lg: 1280,
+          xl: 1920,
+        },
+      },
 });
 
 export default theme;

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
 
+
 // 3rd parties
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -17,11 +18,24 @@ import "./styles/index.scss";
 
 // Apollo Client
 const CLIENT = new ApolloClient({
-    uri: "https://api-ca-central-1.hygraph.com/v2/clk8fhxgv1g0u01ur7y9e5tzs/master ",
+    uri: import.meta.env.VITE_REACT_APP_GRAPHCMS_URI,
     cache: new InMemoryCache(),
     connectToDevTools: true,
+    onError: ({ graphQLErrors, networkError }) => {
+        if (graphQLErrors) {
+          graphQLErrors.forEach(({ message, path, extensions }) => {
+            console.error(
+              `[GraphQL error]: Message: ${message}, Path: ${path}, Extensions: ${JSON.stringify(extensions)}`
+            );
+          });
+        }
+        if (networkError) {
+          console.error(`[Network error]: ${networkError}`);
+        }
+      },
+      // Set debug option to true
+      debug: true,
 })
-
 
 
 

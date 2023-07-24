@@ -1,0 +1,53 @@
+.container {
+    animation: faceInComp 1s forwards alternate ease-in-out;
+    transition: 0.5s all;
+}
+
+
+.image {
+    animation:  fade 20s forwards alternate ease-out,
+                grow 7.33s forwards alternate infinite ease-out,
+                faceIn 1s forwards alternate ease-in;
+    transition: all 0.5s;
+}
+
+
+@keyframes fade {
+    0% {
+        filter: grayscale(0);
+    }
+    100% {
+        filter: grayscale(100%);
+    }
+}
+
+@keyframes grow {
+    0% {
+        scale: 0.98;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes faceIn {
+    0% {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes faceInComp {
+    0% {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

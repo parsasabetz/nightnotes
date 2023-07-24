@@ -6,3 +6,11 @@
     box-sizing: border-box;
     font-family: 'IBM Plex Mono', monospace;
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
