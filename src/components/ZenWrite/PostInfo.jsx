@@ -80,7 +80,6 @@ function PostInfo({ content, status }) {
                 },
             });
 
-            console.log("mutated.")
 
             setSent(true);
             status()
