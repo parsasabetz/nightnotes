@@ -35,4 +35,42 @@ const SEND_COMMENT = gql`
 
 `;
 
-export { SEND_COMMENT };
+
+// we disabled required for postSlug in post model to not include postSlug in here!
+const SEND_POST = gql`
+    mutation sendPost(
+        $title: String!
+        $content: RichTextAST!
+        $dateAndTime: DateTime!
+        $photoID: ID!
+        $authorSlug: String!
+    ) {
+        createPost(
+            data: {
+                title: $title
+                content: $content
+                datePublished: $dateAndTime
+                coverPhoto: { connect: {id: $photoID} }
+                author: { connect: { authorSlug: $authorSlug } }
+            }
+            ) {
+                id
+                postSlug
+                title
+                datePublished
+                content {
+                    html
+                }
+                author {
+                    name
+                }
+                coverPhoto {
+                    url
+                }
+        }
+    }
+`;
+
+
+
+export { SEND_COMMENT, SEND_POST };

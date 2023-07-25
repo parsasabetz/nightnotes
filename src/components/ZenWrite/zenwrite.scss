@@ -1,0 +1,47 @@
+$primary: #747C95;
+
+.ql-toolbar svg {
+  fill: $primary;
+}
+
+.ql-toolbar svg polygon {
+  stroke: $primary;
+}
+
+.ql-formats {
+  fill: $primary;
+  stroke: $primary;
+  color: $primary;
+}
+
+.ql-snow .ql-picker {
+  fill: $primary;
+  stroke: $primary;
+  color: $primary;
+}
+
+.ql-stroke {
+  stroke: $primary !important;
+
+}
+
+.ql-fill {
+  fill: $primary;
+  stroke: $primary;
+  color: $primary;
+}
+
+/* Change the color of all the text in the toolbar to $primary */
+.ql-toolbar button,
+.ql-toolbar select {
+  color: $primary;
+}
+
+/* Change the color of all the text in the editor to $primary */
+.ql-editor .ql-blank {
+  color: $primary !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: $primary !important;
+}

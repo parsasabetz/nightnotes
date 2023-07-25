@@ -15,11 +15,10 @@ import BlogsPage from "./pages/BlogPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AboutPage from "./pages/AboutPage";
 import Zen from "./pages/Zen";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 
 // styles
-
-
 
 
 // app component
@@ -29,6 +28,7 @@ function App() {
     return (
         <>
             <AppBar />
+                <ScrollToTop />
 
                 <Routes>
                     <Route path="/" element={ <HomePage/> } />
@@ -44,7 +44,7 @@ function App() {
 
                     <Route path="/zen" element={ <Zen /> } />
 
-                    {/* <Route path="/*" element={ <NotFoundPage /> } /> */}
+                    <Route path="/*" element={ <NotFoundPage /> } />
                 </Routes>
 
             <Footer />

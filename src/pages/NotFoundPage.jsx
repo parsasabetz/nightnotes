@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSetTitle } from "../hooks/useRefreshTitle";
 
 
@@ -14,10 +15,19 @@ function NotFoundPage() {
             height: "90svh"
         }}>
             <h1>404</h1>
-            <br />
+                <br />
             <h3 style={{
-                fontWeight: "400"
-            }}>Couldn't find the page you're looking for, sorry!</h3>
+                    fontWeight: "400"
+                }}
+            >Couldn't find the page you're looking for, sorry!</h3>
+                <br />
+            <Link style={{
+                    fontWeight: "300",
+                    color: "inherit",
+                    fontSize: "1rem"
+                }}
+                to="/"
+            >go back to home</Link>
         </div>
     )
 }
