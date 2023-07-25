@@ -29,7 +29,7 @@ function Blogs() {
             >
 
                 {
-                    !loading && data.posts.map(post => <Grid item xs={12} sm={6} md={4} key={post.id} sx={{ height: "22vh"}}> <SingleBlog image={post.coverPhoto.url} title={post.title} postSlug={post.postSlug} author={post.author.name} date={post.datePublished} key={post.id}/> </Grid>)
+                    !loading && data.posts.map(post => <Grid item xs={12} sm={6} md={4} key={post.id} sx={{ height: "22vh"}}> <SingleBlog image={post.coverPhoto?.url} title={post.title} postSlug={post.postSlug} author={post.author.name} date={post.datePublished} key={post.id}/> {console.log(post)}</Grid>)
                 }
 
             </Grid>

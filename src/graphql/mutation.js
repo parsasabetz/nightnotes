@@ -42,6 +42,7 @@ const SEND_POST = gql`
         $title: String!
         $content: RichTextAST!
         $dateAndTime: DateTime!
+        $postSlug: String!
         $photoID: ID!
         $authorSlug: String!
     ) {
@@ -50,6 +51,7 @@ const SEND_POST = gql`
                 title: $title
                 content: $content
                 datePublished: $dateAndTime
+                postSlug: $postSlug
                 coverPhoto: { connect: {id: $photoID} }
                 author: { connect: { authorSlug: $authorSlug } }
             }

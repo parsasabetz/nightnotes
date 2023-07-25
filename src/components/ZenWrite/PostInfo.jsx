@@ -17,7 +17,7 @@ import { useMutation } from '@apollo/client';
 
 
 // post
-function PostInfo({ content }) {
+function PostInfo({ content, status }) {
     const [title, setTitle] = useState("");
     const [file, setFile] = useState(null);
     const [fileID, setFileID] = useState("");
@@ -34,6 +34,13 @@ function PostInfo({ content }) {
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
     };
+
+
+    function formatString(str) {
+        // Remove spaces and special characters
+        const formattedStr = str.replace(/[^\w\s]/gi, "").replace(/\s+/g, "-");
+        return formattedStr.toLowerCase();
+    }
 
 
     const handleSendPost = async () => {
@@ -60,16 +67,24 @@ function PostInfo({ content }) {
             const data = await response.json();
             setFileID(data.id);
 
+
+
             await sendPost({
                 variables: {
                     title,
                     content,
                     dateAndTime: currentDate,
-                    photoID: fileID,
+                    postSlug: formatString(title),
+                    photoID: data.id,
                     authorSlug,
                 },
             });
+
+            console.log("mutated.")
+
             setSent(true);
+            status()
+
         } catch (err) {
             console.error(err);
             error_toast(err.message);

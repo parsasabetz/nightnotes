@@ -40,6 +40,11 @@ function ZenWrite() {
     const [leftOver, setLeftOver] = useState(false);
 
 
+    const isSent = () => {
+        setPosted(true);
+    }
+
+
     const handleEditorChange = (content, delta, source, editor) => {
         setValue(content);
         if (!posted) {
@@ -52,15 +57,14 @@ function ZenWrite() {
         }
     }
 
-    const convertToAST = async (htmlString) => {
+    const convertToAST = (htmlString) => {
         const ast = deserializeHtml(htmlString);
         const raw = {
             "children": [
                 ...ast
             ]
         }
-        // console.log(JSON.stringify(raw))
-        return JSON.stringify(raw);
+        return raw;
     }
 
 
@@ -190,7 +194,7 @@ function ZenWrite() {
                     md={12}
                     lg={12}
                 >
-                    <PostInfo content={convertToAST(value)} />
+                    <PostInfo content={convertToAST(value)} status={isSent}/>
                 </Grid>
 
 
